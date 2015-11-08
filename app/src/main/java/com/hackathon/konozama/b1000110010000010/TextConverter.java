@@ -17,7 +17,7 @@ public class TextConverter {
         try {
             byte data[] = jp_text.getBytes(enc);
             for (byte b : data) {
-                res += Integer.toBinaryString(b);
+                res += String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0');
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -31,8 +31,9 @@ public class TextConverter {
 
         try {
             byte data[] = jp_text.getBytes("UTF-8");
+            Log.d("test01", "data len :" + data.length);
             for (byte b : data) {
-                res += Integer.toBinaryString(b);
+                res += String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0');
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
